@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  docker-machine-agent:
+    build: .
+    container_name: docker-machine-agent
+    image: appdynamics/docker-machine-agent
+    environment:
+      - APPD_HOST=
+      - APPD_PORT=
+      - APPD_ACCOUNT_NAME=
+      - APPD_ACCESS_KEY=
+      - APPD_SSL_ENABLED=
+    volumes:
+      - /:/hostroot:ro
+      - /var/run/docker.sock:/var/run/docker.sock
