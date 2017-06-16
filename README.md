@@ -1,4 +1,4 @@
-#Standalone Machine Agent for Docker Visibility
+##Standalone Machine Agent for Docker Visibility
 
 The following example shows how to build and run the Standalone Machine Agent in a container with Docker Visibility enabled. This is provided as a guide only, and you may freely modify it to suit your needs.  Docker Container monitoring requires a Server Visibility license and version 4.3.3 or higher of both the Controller and the Standalone Machine Agent.
  
@@ -8,8 +8,9 @@ To build and run this example, you should be running Docker API version 1.27 or 
 To build and run the project:
 
 1. Clone this repo and `cd docker-machine-agent`
-2. Edit the docker-compose.yml file and replace the text in italic with the host, port, account name, access key and SSL connection details for your Controller.  Please see the [product documentation](https://docs.appdynamics.com/display/PRO43/Standalone+Machine+Agent+Configuration+Property+Reference) for details of how to configure these properties, which allow the Machine Agent to connect to your Controller instance.
-3. Run `docker-compose up`
+1. Edit the docker-compose.yml file and replace the text in italic with the host, port, account name, access key and SSL connection details for your Controller.  Please see the [product documentation](https://docs.appdynamics.com/display/PRO43/Standalone+Machine+Agent+Configuration+Property+Reference) for details of how to configure these properties, which allow the Machine Agent to connect to your Controller instance.
+1. Download the Machine Agent ZIP bundle with JRE (64-bit Linux) from the [AppDynamics Download Site](https://download.appdynamics.com), copy it to your project directory and rename to *machine-agent.zip*
+1. Run `docker-compose up`
 
 The first time you run this command, you will see a lot of console output as the Docker image is built, followed by output similar to this:
 
@@ -27,3 +28,7 @@ docker-machine-agent    | [INFO] Agent logging directory set to: [/opt/appdynami
 docker-machine-agent    | Redirecting all logging statements to the configured logger
 docker-machine-agent    | Started AppDynamics Machine Agent Successfully.
 ```
+###Some Useful Commands
+- View the Machine Agent log: `docker exec -it docker-machine-agent bash -c "tail -f /opt/appdynamics/machine-agent/logs/machine-agent.log"`
+- Stop the container: `docker-compose stop`
+- Rebuild the container: `docker-compose up --build`
