@@ -1,4 +1,4 @@
-##Standalone Machine Agent for Docker Visibility
+## Standalone Machine Agent for Docker Visibility
 
 The following example shows how to build and run the Standalone Machine Agent in a container with Docker Visibility enabled. This is provided as a guide only, and you may freely modify it to suit your needs.  Docker Container monitoring requires a Server Visibility license and version 4.3.3 or higher of both the Controller and the Standalone Machine Agent.
  
@@ -28,7 +28,7 @@ docker-machine-agent    | [INFO] Agent logging directory set to: [/opt/appdynami
 docker-machine-agent    | Redirecting all logging statements to the configured logger
 docker-machine-agent    | Started AppDynamics Machine Agent Successfully.
 ```
-###Some Useful Commands
+### Some Useful Commands
 - View the Machine Agent log: `docker exec -it docker-machine-agent bash -c "tail -f /opt/appdynamics/machine-agent/logs/machine-agent.log"`
 - Stop the container: `docker-compose stop`
 - Rebuild the container: `docker-compose up --build`
